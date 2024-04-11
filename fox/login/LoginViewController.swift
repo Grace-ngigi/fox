@@ -11,7 +11,8 @@ protocol LoginViewControllerDelegate: AnyObject {
 }
 
 class LoginViewController: UIViewController {
-    let someText = UILabel()
+    let foxTitle = UILabel()
+    let moreText = UILabel()
     let loginView = LoginView()
     let logiinbutton = UIButton()
     let errorLabel = UILabel()
@@ -33,14 +34,33 @@ class LoginViewController: UIViewController {
         style()
         layout()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        logiinbutton.configuration?.showsActivityIndicator = false
+
+    }
 }
     
     extension LoginViewController {
         private func style() {
-            someText.translatesAutoresizingMaskIntoConstraints = false
-            someText.text = "The easiest way to track that cunning fox!!"
-            someText.textAlignment = .center
-            someText.textColor = .black
+            view.backgroundColor = .systemBackground
+            
+            foxTitle.translatesAutoresizingMaskIntoConstraints = false
+            foxTitle.text = "The Red Fox"
+            foxTitle.textAlignment = .center
+            foxTitle.font = UIFont.preferredFont(forTextStyle: .title1)
+            foxTitle.alpha = 0
+            foxTitle.adjustsFontForContentSizeCategory = true
+            foxTitle.textColor = .black
+
+            moreText.translatesAutoresizingMaskIntoConstraints = false
+            moreText.text = "This app provides all the details you need to know about foxes"
+            moreText.numberOfLines = 0
+            moreText.textAlignment = .center
+            moreText.adjustsFontForContentSizeCategory = true
+            foxTitle.alpha = 0
+            moreText.textColor = .black
             
             
             loginView.translatesAutoresizingMaskIntoConstraints = false
@@ -60,22 +80,29 @@ class LoginViewController: UIViewController {
             
         }
         private func layout() {
-            view.addSubview(someText)
+            view.addSubview(foxTitle)
+            view.addSubview(moreText)
             view.addSubview(loginView)
             view.addSubview(logiinbutton)
             view.addSubview(errorLabel)
-            
+                        
             NSLayoutConstraint.activate([
-                someText.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                someText.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-                view.trailingAnchor.constraint(equalToSystemSpacingAfter: someText.trailingAnchor, multiplier: 1),
+//                foxTitle.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                foxTitle.topAnchor.constraint(equalTo: view.topAnchor),
+                foxTitle.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+                view.trailingAnchor.constraint(equalToSystemSpacingAfter: foxTitle.trailingAnchor, multiplier: 1),
+
+                              
+                moreText.topAnchor.constraint(equalToSystemSpacingBelow: foxTitle.bottomAnchor, multiplier: 1),
+                moreText.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+                view.trailingAnchor.constraint(equalToSystemSpacingAfter: moreText.trailingAnchor, multiplier: 1),
                              
-//                loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-                loginView.topAnchor.constraint(equalToSystemSpacingBelow: someText.bottomAnchor, multiplier: 1),
+                loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+                loginView.topAnchor.constraint(equalToSystemSpacingBelow: moreText.bottomAnchor, multiplier: 3),
                 loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
                 view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1),
                 
-                logiinbutton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2),
+                logiinbutton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 3),
                 logiinbutton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
                 view.trailingAnchor.constraint(equalToSystemSpacingAfter: logiinbutton.trailingAnchor, multiplier: 1),
                 
@@ -99,16 +126,16 @@ extension LoginViewController {
             assertionFailure("Should not be empty or nil")
             return
         }
-        
+//        
         if username.isEmpty || password.isEmpty{
             configureView(withMsg: "Should not be empty or nil")
         }
-        if username == "Foxxy" && password == "cunning"{
+        if username == "" && password == ""{
             logiinbutton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
 //            errorLabel.textColor = .systemGreen
 //            errorLabel.isHidden = false
-//            errorLabel.text = "welcome foxxy"
+//            errorLabel.text = "welcome Foxxy"
         } else {
             configureView(withMsg: "wrong credentials")
         }

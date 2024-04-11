@@ -7,6 +7,8 @@
 
 import UIKit
 
+let appColoor: UIColor = .systemTeal
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 

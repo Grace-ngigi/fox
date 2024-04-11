@@ -29,11 +29,11 @@ class LoginView: UIView {
 extension LoginView {
     func style() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = .lightGray
+        backgroundColor = .secondarySystemBackground
         
         stackview.translatesAutoresizingMaskIntoConstraints = false
         stackview.axis = .vertical
-        stackview.spacing = 8
+        stackview.spacing = 16
         
         usernameTF.translatesAutoresizingMaskIntoConstraints = false
         usernameTF.placeholder = "Username"

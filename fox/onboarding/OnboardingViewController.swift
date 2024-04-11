@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class OnboardingViewController: UIViewController {
     var heroImage: String
     var labelText: String
@@ -26,8 +25,7 @@ class OnboardingViewController: UIViewController {
     let stackview = UIStackView()
     let label = UILabel()
     let image = UIImageView()
-    let closeButton = UIButton(type: .system)
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
@@ -38,7 +36,8 @@ class OnboardingViewController: UIViewController {
 extension OnboardingViewController {
     func style() {
         
-//                view.backgroundColor = .lightGray
+        view.backgroundColor = .systemBackground
+        
         stackview.translatesAutoresizingMaskIntoConstraints = false
         stackview.axis = .vertical
         stackview.spacing  = 20
@@ -53,20 +52,24 @@ extension OnboardingViewController {
         
         
         image.translatesAutoresizingMaskIntoConstraints = false
+//        image.contentMode = .scaleAspectFit
+//        if let originalImage = UIImage(named: heroImage) {
+//            let targetSize = CGSize(width: 50, height: 50) // Specify your target size here
+//            let resizedImage = resizeImage(image: originalImage, targetSize: targetSize)
+            
+            // Use resizedImage as needed
+//            image.image = resizedImage
+//        }
+
+//        image.image = UIImage(named: heroImage)
         
-        
-        closeButton.translatesAutoresizingMaskIntoConstraints = false
-        closeButton.setTitle("Close", for: [])
-        closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
-        //        image.image =  UIImage(systemName: "play.circle", withConfiguration: UIImage.SymbolConfiguration(pointSize: 32))
     }
     
     func layout() {
-        //        stackview.addArrangedSubview(image)
+        stackview.addArrangedSubview(image)
         stackview.addArrangedSubview(label)
         
         view.addSubview(stackview)
-        view.addSubview(closeButton)
         
         NSLayoutConstraint.activate([
             stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor),
@@ -76,15 +79,6 @@ extension OnboardingViewController {
             view.bottomAnchor.constraint(equalToSystemSpacingBelow: stackview.bottomAnchor, multiplier: 1),
             stackview.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
             view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackview.trailingAnchor, multiplier: 1),
-            
-            closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2),
-            closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
         ])
     }
-}
-    
-    extension OnboardingViewController {
-        @objc func closeTapped(_ sender: UIButton) {
-            
-        }
 }

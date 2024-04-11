@@ -10,8 +10,11 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
-    
-    let viewController = LoginViewController()
+        
+    let loginController = LoginViewController()
+    let onboardingController = ContainerViewController()
+    let homeController = HomeController()
+    let mainCotroller = MainViewController()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -22,8 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
-        viewController.delegate = self
-        window?.rootViewController = viewController
+        onboardingController.delegate = self
+        loginController.delegate = self
+        homeController.delegate = self
+        window?.rootViewController = mainCotroller
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -57,7 +62,39 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 extension SceneDelegate: LoginViewControllerDelegate {
     func didLogin(){
-        print("Imagine you have just logged in")
+        if LocalState.hasOnBoarded {
+            setRootController(homeController)
+        } else {
+            setRootController(onboardingController)
+        }
+    }
+}
+
+extension SceneDelegate: ContainerViewControllerDelegate {
+    func didFinishOnboarding() {
+        print("Onboarding is complete!!")
+        LocalState.hasOnBoarded = false
+        setRootController(homeController)
+    }
+}
+
+extension SceneDelegate: HomeControllerDelegate {
+    func didLogout() {
+        setRootController(loginController)  
+        LocalState.hasOnBoarded = false
+    }
+}
+extension SceneDelegate {
+    func setRootController(_ vc: UIViewController, animated: Bool = true){
+        guard animated, let window = self.window else {
+            self.window?.rootViewController = vc
+            self.window?.makeKeyAndVisible()
+            return
+        }
+        
+        window.rootViewController = vc
+        window.makeKeyAndVisible()
+        UIView.transition(with: window, duration: 0.9, animations: nil, completion: nil)
     }
 }
 

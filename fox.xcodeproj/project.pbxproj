@@ -10,6 +10,7 @@
 		65017EC32BC69BE900E8B127 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC22BC69BE900E8B127 /* UIViewControllerUtils.swift */; };
 		65017EC52BC6AA9E00E8B127 /* resizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC42BC6AA9E00E8B127 /* resizeImage.swift */; };
 		65017EC72BC6AFF600E8B127 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC62BC6AFF600E8B127 /* MainViewController.swift */; };
+		65017ECA2BC7DF8E00E8B127 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC92BC7DF8E00E8B127 /* CharacterViewController.swift */; };
 		6577CB2A2BC3C6C700A1FA53 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577CB292BC3C6C700A1FA53 /* ContainerViewController.swift */; };
 		6577CB2C2BC3D9FA00A1FA53 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577CB2B2BC3D9FA00A1FA53 /* OnboardingViewController.swift */; };
 		65BB2A532BC55D14006ED919 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB2A522BC55D14006ED919 /* HomeController.swift */; };
@@ -27,6 +28,7 @@
 		65017EC22BC69BE900E8B127 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		65017EC42BC6AA9E00E8B127 /* resizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resizeImage.swift; sourceTree = "<group>"; };
 		65017EC62BC6AFF600E8B127 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		65017EC92BC7DF8E00E8B127 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		6577CB292BC3C6C700A1FA53 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		6577CB2B2BC3D9FA00A1FA53 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		65BB2A522BC55D14006ED919 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -53,6 +55,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65017EC82BC7DF4900E8B127 /* characterSummary */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = characterSummary;
+			sourceTree = "<group>";
+		};
 		6577CB282BC3C68200A1FA53 /* onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +108,7 @@
 		65EF592C2BBFE623006E58F0 /* fox */ = {
 			isa = PBXGroup;
 			children = (
+				65017EC82BC7DF4900E8B127 /* characterSummary */,
 				65BB2A542BC57708006ED919 /* utils */,
 				65BB2A512BC55CFA006ED919 /* home */,
 				6577CB282BC3C68200A1FA53 /* onboarding */,
@@ -110,6 +120,7 @@
 				65EF59382BBFE627006E58F0 /* LaunchScreen.storyboard */,
 				65EF593B2BBFE627006E58F0 /* Info.plist */,
 				65017EC62BC6AFF600E8B127 /* MainViewController.swift */,
+				65017EC92BC7DF8E00E8B127 /* CharacterViewController.swift */,
 			);
 			path = fox;
 			sourceTree = "<group>";
@@ -194,6 +205,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65017ECA2BC7DF8E00E8B127 /* CharacterViewController.swift in Sources */,
 				65017EC32BC69BE900E8B127 /* UIViewControllerUtils.swift in Sources */,
 				65017EC72BC6AFF600E8B127 /* MainViewController.swift in Sources */,
 				65EF59432BBFE7AC006E58F0 /* LoginViewController.swift in Sources */,

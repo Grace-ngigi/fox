@@ -52,14 +52,6 @@ class MainViewController : UITabBarController {
     }
 }
 
-
-class CharacterViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemGreen
-    }
-}
-
 class FeedingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()

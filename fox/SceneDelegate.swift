@@ -28,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         onboardingController.delegate = self
         loginController.delegate = self
         homeController.delegate = self
-        window?.rootViewController = mainCotroller
+        window?.rootViewController = onboardingController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

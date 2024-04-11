@@ -36,9 +36,9 @@ class ContainerViewController : UIViewController {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                        navigationOrientation: .horizontal, options: nil)
         
-        let page1 = OnboardingViewController(heroImage: "some", labelText: "Foxes have a striking appearance characterized by their bushy tails, pointed ears, slender bodies, and often colorful fur")
-        let page2 = OnboardingViewController(heroImage: "image", labelText: "Foxes are known for their graceful movements and agile behavior.")
-        let page3 = OnboardingViewController(heroImage: "here", labelText: "Foxes are known for their wide range of vocalizations, including barks, yips, howls, and screams")
+        let page1 = OnboardingViewController(heroImage: "foxxy1", labelText: "Foxes have a striking appearance characterized by their bushy tails, pointed ears, slender bodies, and often colorful fur")
+        let page2 = OnboardingViewController(heroImage: "foxxy2", labelText: "Foxes are known for their graceful movements and agile behavior.")
+        let page3 = OnboardingViewController(heroImage: "foxxy3", labelText: "Foxes are known for their wide range of vocalizations, including barks, yips, howls, and screams")
         
         pages.append(page1)
         pages.append(page2)

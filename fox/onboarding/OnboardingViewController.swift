@@ -35,7 +35,6 @@ class OnboardingViewController: UIViewController {
 
 extension OnboardingViewController {
     func style() {
-        
         view.backgroundColor = .systemBackground
         
         stackview.translatesAutoresizingMaskIntoConstraints = false
@@ -52,16 +51,11 @@ extension OnboardingViewController {
         
         
         image.translatesAutoresizingMaskIntoConstraints = false
-//        image.contentMode = .scaleAspectFit
-//        if let originalImage = UIImage(named: heroImage) {
-//            let targetSize = CGSize(width: 50, height: 50) // Specify your target size here
-//            let resizedImage = resizeImage(image: originalImage, targetSize: targetSize)
-            
-            // Use resizedImage as needed
-//            image.image = resizedImage
-//        }
-
-//        image.image = UIImage(named: heroImage)
+        image.contentMode = .scaleAspectFill
+        image.clipsToBounds = true
+        image.layer.borderWidth = 2.0
+        image.layer.borderColor = UIColor.red.cgColor
+        image.image = UIImage(named: heroImage)
         
     }
     
@@ -72,6 +66,9 @@ extension OnboardingViewController {
         view.addSubview(stackview)
         
         NSLayoutConstraint.activate([
+            image.heightAnchor.constraint(equalToConstant: 300),
+            image.widthAnchor.constraint(equalToConstant: 200),
+            
             stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             

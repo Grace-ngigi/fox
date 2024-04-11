@@ -27,6 +27,7 @@ class CharacterViewController: UIViewController {
 extension CharacterViewController {
     private func setUp() {
         setUpTableView()
+        setUpHeaderView()
     }
     
     private func setUpTableView() {
@@ -42,6 +43,15 @@ extension CharacterViewController {
             tableView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
         ])
+    }
+    
+    private func setUpHeaderView() {
+        print("Setting up header view")
+        let header = CharacterSummaryHeaderView(frame: .zero)
+        var size = header.systemLayoutSizeFitting(UIView.layoutFittingCompressedSize)
+        size.width = UIScreen.main.bounds.width
+        header.frame.size = size
+        tableView.tableHeaderView = header
     }
 }
     
@@ -60,6 +70,5 @@ extension CharacterViewController: UITableViewDataSource {
 
 extension CharacterViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        <#code#>
     }
 }

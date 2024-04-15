@@ -28,7 +28,7 @@ class MainViewController : UITabBarController {
         let feedingNC = UINavigationController(rootViewController: feedingVC)
         let historyNC = UINavigationController(rootViewController: historyVC)
         
-        characterNC.navigationBar.barTintColor = appColoor
+        characterNC.navigationBar.barTintColor = appColor
         hideNavigationBarLine(characterNC.navigationBar)
         
         let tabBarList = [characterNC, feedingNC, historyNC]
@@ -46,7 +46,7 @@ class MainViewController : UITabBarController {
     }
     
     private func setUpTabBar() {
-        tabBar.tintColor = appColoor
+        tabBar.tintColor = appColor
         tabBar.isTranslucent = false
         
     }

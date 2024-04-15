@@ -27,7 +27,7 @@ class CharacterViewController: UIViewController {
 extension CharacterViewController {
     private func setUp() {
         setUpTableView()
-        setUpHeaderView()
+//        setUpHeaderView()
     }
     
     private func setUpTableView() {

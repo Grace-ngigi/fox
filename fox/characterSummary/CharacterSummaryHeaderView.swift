@@ -29,7 +29,7 @@ class CharacterSummaryHeaderView: UIView {
         bundle.loadNibNamed("CharacterSummaryHeaderView", owner: self, options: nil)
         addSubview(contentView)
         
-        contentView.backgroundColor = appColoor
+        contentView.backgroundColor = appColor
         contentView.translatesAutoresizingMaskIntoConstraints = false
         contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
         contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true

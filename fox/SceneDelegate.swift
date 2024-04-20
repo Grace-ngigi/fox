@@ -15,6 +15,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let onboardingController = ContainerViewController()
     let homeController = HomeController()
     let mainCotroller = MainViewController()
+    let dogViewController = DogViewController()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -28,7 +29,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         onboardingController.delegate = self
         loginController.delegate = self
         homeController.delegate = self
-        window?.rootViewController = mainCotroller
+        window?.rootViewController = dogViewController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

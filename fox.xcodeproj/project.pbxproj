@@ -8,11 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		65017EC32BC69BE900E8B127 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC22BC69BE900E8B127 /* UIViewControllerUtils.swift */; };
-		65017EC52BC6AA9E00E8B127 /* resizeImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC42BC6AA9E00E8B127 /* resizeImage.swift */; };
 		65017EC72BC6AFF600E8B127 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC62BC6AFF600E8B127 /* MainViewController.swift */; };
 		65017ECA2BC7DF8E00E8B127 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC92BC7DF8E00E8B127 /* CharacterViewController.swift */; };
 		65017ECC2BC7E83F00E8B127 /* CharacterSummaryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65017ECB2BC7E83F00E8B127 /* CharacterSummaryHeaderView.xib */; };
 		65017ECE2BC7EA5500E8B127 /* CharacterSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017ECD2BC7EA5500E8B127 /* CharacterSummaryHeaderView.swift */; };
+		6532EDEE2BD39B19000E6A29 /* DogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532EDED2BD39B19000E6A29 /* DogViewController.swift */; };
+		6532EDF02BD39E06000E6A29 /* DogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532EDEF2BD39E06000E6A29 /* DogTableViewCell.swift */; };
+		6532EDF32BD3A162000E6A29 /* CatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532EDF22BD3A162000E6A29 /* CatTableViewCell.swift */; };
+		6532EDF52BD3A177000E6A29 /* CatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532EDF42BD3A177000E6A29 /* CatViewController.swift */; };
+		6532EDF72BD3A668000E6A29 /* DogDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532EDF62BD3A668000E6A29 /* DogDetailViewController.swift */; };
+		6532EDFA2BD3A7EC000E6A29 /* DogViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532EDF92BD3A7EC000E6A29 /* DogViewModel.swift */; };
+		6532EDFC2BD3B0BB000E6A29 /* DogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532EDFB2BD3B0BB000E6A29 /* DogModel.swift */; };
+		6532EDFE2BD3B380000E6A29 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532EDFD2BD3B380000E6A29 /* NetworkError.swift */; };
 		6577CB2A2BC3C6C700A1FA53 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577CB292BC3C6C700A1FA53 /* ContainerViewController.swift */; };
 		6577CB2C2BC3D9FA00A1FA53 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577CB2B2BC3D9FA00A1FA53 /* OnboardingViewController.swift */; };
 		65BB2A532BC55D14006ED919 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB2A522BC55D14006ED919 /* HomeController.swift */; };
@@ -28,11 +35,18 @@
 
 /* Begin PBXFileReference section */
 		65017EC22BC69BE900E8B127 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
-		65017EC42BC6AA9E00E8B127 /* resizeImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = resizeImage.swift; sourceTree = "<group>"; };
 		65017EC62BC6AFF600E8B127 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		65017EC92BC7DF8E00E8B127 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		65017ECB2BC7E83F00E8B127 /* CharacterSummaryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSummaryHeaderView.xib; sourceTree = "<group>"; };
 		65017ECD2BC7EA5500E8B127 /* CharacterSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSummaryHeaderView.swift; sourceTree = "<group>"; };
+		6532EDED2BD39B19000E6A29 /* DogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogViewController.swift; sourceTree = "<group>"; };
+		6532EDEF2BD39E06000E6A29 /* DogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewCell.swift; sourceTree = "<group>"; };
+		6532EDF22BD3A162000E6A29 /* CatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatTableViewCell.swift; sourceTree = "<group>"; };
+		6532EDF42BD3A177000E6A29 /* CatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewController.swift; sourceTree = "<group>"; };
+		6532EDF62BD3A668000E6A29 /* DogDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogDetailViewController.swift; sourceTree = "<group>"; };
+		6532EDF92BD3A7EC000E6A29 /* DogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogViewModel.swift; sourceTree = "<group>"; };
+		6532EDFB2BD3B0BB000E6A29 /* DogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogModel.swift; sourceTree = "<group>"; };
+		6532EDFD2BD3B380000E6A29 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		6577CB292BC3C6C700A1FA53 /* ContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		6577CB2B2BC3D9FA00A1FA53 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		65BB2A522BC55D14006ED919 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
@@ -68,6 +82,28 @@
 			path = characterSummary;
 			sourceTree = "<group>";
 		};
+		6532EDEC2BD39AF2000E6A29 /* dogs */ = {
+			isa = PBXGroup;
+			children = (
+				6532EDF92BD3A7EC000E6A29 /* DogViewModel.swift */,
+				6532EDED2BD39B19000E6A29 /* DogViewController.swift */,
+				6532EDEF2BD39E06000E6A29 /* DogTableViewCell.swift */,
+				6532EDF62BD3A668000E6A29 /* DogDetailViewController.swift */,
+				6532EDFB2BD3B0BB000E6A29 /* DogModel.swift */,
+				6532EDFD2BD3B380000E6A29 /* NetworkError.swift */,
+			);
+			path = dogs;
+			sourceTree = "<group>";
+		};
+		6532EDF12BD3A14C000E6A29 /* cats */ = {
+			isa = PBXGroup;
+			children = (
+				6532EDF22BD3A162000E6A29 /* CatTableViewCell.swift */,
+				6532EDF42BD3A177000E6A29 /* CatViewController.swift */,
+			);
+			path = cats;
+			sourceTree = "<group>";
+		};
 		6577CB282BC3C68200A1FA53 /* onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +116,8 @@
 		65BB2A512BC55CFA006ED919 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				6532EDF12BD3A14C000E6A29 /* cats */,
+				6532EDEC2BD39AF2000E6A29 /* dogs */,
 				65BB2A522BC55D14006ED919 /* HomeController.swift */,
 			);
 			path = home;
@@ -90,7 +128,6 @@
 			children = (
 				65BB2A552BC57720006ED919 /* LocalState.swift */,
 				65017EC22BC69BE900E8B127 /* UIViewControllerUtils.swift */,
-				65017EC42BC6AA9E00E8B127 /* resizeImage.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -212,19 +249,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6532EDEE2BD39B19000E6A29 /* DogViewController.swift in Sources */,
 				65017ECE2BC7EA5500E8B127 /* CharacterSummaryHeaderView.swift in Sources */,
+				6532EDF02BD39E06000E6A29 /* DogTableViewCell.swift in Sources */,
 				65017ECA2BC7DF8E00E8B127 /* CharacterViewController.swift in Sources */,
 				65017EC32BC69BE900E8B127 /* UIViewControllerUtils.swift in Sources */,
 				65017EC72BC6AFF600E8B127 /* MainViewController.swift in Sources */,
+				6532EDF72BD3A668000E6A29 /* DogDetailViewController.swift in Sources */,
 				65EF59432BBFE7AC006E58F0 /* LoginViewController.swift in Sources */,
+				6532EDFE2BD3B380000E6A29 /* NetworkError.swift in Sources */,
+				6532EDF32BD3A162000E6A29 /* CatTableViewCell.swift in Sources */,
 				6577CB2C2BC3D9FA00A1FA53 /* OnboardingViewController.swift in Sources */,
+				6532EDF52BD3A177000E6A29 /* CatViewController.swift in Sources */,
 				65BB2A532BC55D14006ED919 /* HomeController.swift in Sources */,
 				65EF592E2BBFE623006E58F0 /* AppDelegate.swift in Sources */,
 				6577CB2A2BC3C6C700A1FA53 /* ContainerViewController.swift in Sources */,
 				65EF59452BBFE7C3006E58F0 /* LoginView.swift in Sources */,
+				6532EDFC2BD3B0BB000E6A29 /* DogModel.swift in Sources */,
+				6532EDFA2BD3A7EC000E6A29 /* DogViewModel.swift in Sources */,
 				65EF59302BBFE623006E58F0 /* SceneDelegate.swift in Sources */,
 				65BB2A562BC57720006ED919 /* LocalState.swift in Sources */,
-				65017EC52BC6AA9E00E8B127 /* resizeImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

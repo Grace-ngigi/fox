@@ -18,47 +18,50 @@ class OnboardingViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    let stackview = UIStackView()
-    let label = UILabel()
-    let image = UIImageView()
-        
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        style()
-        layout()
-    }
-}
-
-extension OnboardingViewController {
-    func style() {
-        view.backgroundColor = .systemBackground
-        
+    lazy var stackview: UIStackView = {
+        let stackview = UIStackView()
         stackview.translatesAutoresizingMaskIntoConstraints = false
         stackview.axis = .vertical
-        stackview.spacing  = 20
-        
-        
+//        stackview.spacing  = 0
+//        stackview.alignment = .center
+        return stackview
+    }()
+    
+    lazy var label: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.textAlignment = .center
         label.numberOfLines = 0
         label.text = labelText
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.adjustsFontForContentSizeCategory = true
-        
-        
+        return label
+    }()
+    
+    lazy var image: UIImageView = {
+        let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
-        image.layer.borderWidth = 2.0
-        image.layer.borderColor = UIColor.red.cgColor
+//        image.layer.borderWidth = 2.0
+//        image.layer.borderColor = UIColor.red.cgColor
         image.image = UIImage(named: heroImage)
-        
+        return image
+    }()
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
+        
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        view.backgroundColor = .systemBackground
+        layout()
+    }
+}
+
+extension OnboardingViewController {
     func layout() {
         stackview.addArrangedSubview(image)
         stackview.addArrangedSubview(label)
@@ -66,16 +69,13 @@ extension OnboardingViewController {
         view.addSubview(stackview)
         
         NSLayoutConstraint.activate([
-            image.heightAnchor.constraint(equalToConstant: 300),
-            image.widthAnchor.constraint(equalToConstant: 200),
-            
             stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             
             stackview.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 1),
-            view.bottomAnchor.constraint(equalToSystemSpacingBelow: stackview.bottomAnchor, multiplier: 1),
             stackview.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: stackview.trailingAnchor, multiplier: 1),
+            
+            image.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
 }

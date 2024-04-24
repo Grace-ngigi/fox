@@ -1,15 +1,15 @@
 //
-//  CatViewController.swift
+//  DummyController.swift
 //  fox
 //
-//  Created by Gracie on 20/04/2024.
+//  Created by Gracie on 22/04/2024.
 //
 
 import UIKit
 
-class CatViewController: UIViewController {
-    var catModel: [CatModel] = []
-    var catViewModel: [CatViewModel] = []
+class DummyController: UIViewController {
+    var dog: [DogModel] = []
+    var dogViewModel: [DogViewModel] = []
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
@@ -20,7 +20,7 @@ class CatViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        fetchCatData()
+        fetchDummyDogData()
     }
     
     private func setUp() {
@@ -38,9 +38,9 @@ class CatViewController: UIViewController {
 }
 
 //MARK: Network Calls
-extension CatViewController {
-    func fetchData(completion: @escaping (Result<[CatModel], NetworkError>) -> Void) {
-        let url = "https://api.thecatapi.com/v1/breeds"
+extension DummyController {
+    func fetchDummyData(completion: @escaping (Result<[DogModel], NetworkError>) -> Void) {
+        let url = "https://api.thedogapi.com/v1/breeds"
                 
             guard let url = URL(string: url) else {
                 completion(.failure(.invalidURL))
@@ -53,7 +53,7 @@ extension CatViewController {
                     }
 
                     do {
-                        let result: [CatModel] = try JSONDecoder().decode([CatModel].self, from: data)
+                        let result: [DogModel] = try JSONDecoder().decode([DogModel].self, from: data)
                         completion(.success(result))
                     } catch {
                         print(error.localizedDescription)
@@ -64,14 +64,14 @@ extension CatViewController {
 }
 
 // MARK: load data
-extension CatViewController {
-    private func fetchCatData() {
-        self.fetchData() { result in
+extension DummyController {
+    private func fetchDummyDogData() {
+        self.fetchDummyData() { result in
             switch result {
-            case .success(let catData):
-                self.catModel = catData
+            case .success(let dogData):
+                self.dog = dogData
                 DispatchQueue.main.async {
-                    self.configureCatData(with: catData)
+                    self.configureDogData(with: dogData)
                     self.tableView.reloadData()
                 }
             case .failure(let error):
@@ -80,33 +80,26 @@ extension CatViewController {
         }
     }
     
-    func configureCatData(with cats: [CatModel]) {
-        catViewModel = cats.map {cat in
-            CatViewModel(weight: cat.weight.metric,
-                         id: cat.id,
-                         name: cat.name,
-                         temperament: cat.temperament,
-                         origin: cat.origin,
-                         description: cat.description,
-                         lifeSpan: cat.lifeSpan,
-                         adaptability: cat.adaptability,
-                         affectionLevel: cat.affectionLevel,
-                         childFriendly: cat.childFriendly,
-                         dogFriendly: cat.dogFriendly,
-                         hypoallergenic: cat.hypoallergenic)
+    func configureDogData(with breeds: [DogModel]) {
+        dogViewModel = breeds.map {breed in
+            DogViewModel(name: breed.name,
+                         description: breed.description,
+                         weight: breed.weight.metric,
+                         height: breed.height.metric,
+                         lifespan: breed.lifeSpan)
         }
     }
 
 }
 
-extension CatViewController: UITableViewDataSource, UITableViewDelegate {
+extension DummyController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return catViewModel.count
+        return dogViewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = catViewModel[indexPath.row].name
+        cell.textLabel?.text = dogViewModel[indexPath.row].name
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

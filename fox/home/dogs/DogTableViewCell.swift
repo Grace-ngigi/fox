@@ -61,6 +61,6 @@ extension DogTableViewCell {
     }
     
     func configure(with dog: DogViewModel){
-        breedLabel.text = dog.breed
+        breedLabel.text = dog.name
     }
 }

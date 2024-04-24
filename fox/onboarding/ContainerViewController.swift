@@ -36,9 +36,9 @@ class ContainerViewController : UIViewController {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                        navigationOrientation: .horizontal, options: nil)
         
-        let page1 = OnboardingViewController(heroImage: "foxxy1", labelText: "Foxes have a striking appearance characterized by their bushy tails, pointed ears, slender bodies, and often colorful fur")
-        let page2 = OnboardingViewController(heroImage: "foxxy2", labelText: "Foxes are known for their graceful movements and agile behavior.")
-        let page3 = OnboardingViewController(heroImage: "foxxy3", labelText: "Foxes are known for their wide range of vocalizations, including barks, yips, howls, and screams")
+        let page1 = OnboardingViewController(heroImage: "foxxy4", labelText: "Dogs have a remarkable sense of smell, with some estimates suggesting they can detect scents up to 100,000 times better than humans.")
+        let page2 = OnboardingViewController(heroImage: "foxxy2", labelText: "Cats have a remarkable ability to rotate their ears independently, allowing them to precisely pinpoint the source of a sound. Each of their ears has 32 muscles, compared to a human's 6, which gives them exceptional control and range of motion.")
+        let page3 = OnboardingViewController(heroImage: "foxxy3", labelText: "Foxes have a striking appearance characterized by their bushy tails, pointed ears, slender bodies, and often colorful fur")
         
         pages.append(page1)
         pages.append(page2)
@@ -91,10 +91,10 @@ class ContainerViewController : UIViewController {
 
         
         NSLayoutConstraint.activate([
-            view.topAnchor.constraint(equalTo: pageViewController.view.topAnchor),
-            view.leadingAnchor.constraint(equalTo: pageViewController.view.leadingAnchor),
-            view.trailingAnchor.constraint(equalTo: pageViewController.view.trailingAnchor),
-            view.bottomAnchor.constraint(equalTo: pageViewController.view.bottomAnchor),
+            view.safeAreaLayoutGuide.topAnchor.constraint(equalTo: pageViewController.view.topAnchor),
+            view.safeAreaLayoutGuide.leadingAnchor.constraint(equalTo: pageViewController.view.leadingAnchor),
+            view.safeAreaLayoutGuide.trailingAnchor.constraint(equalTo: pageViewController.view.trailingAnchor),
+            view.safeAreaLayoutGuide.bottomAnchor.constraint(equalTo: pageViewController.view.bottomAnchor),
             
             closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2),
             closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),            

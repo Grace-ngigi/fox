@@ -14,8 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     let loginController = LoginViewController()
     let onboardingController = ContainerViewController()
     let homeController = HomeController()
-    let mainCotroller = MainViewController()
-    let dogViewController = DogViewController()
+    let mainController = MainViewController()
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
@@ -29,7 +28,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         onboardingController.delegate = self
         loginController.delegate = self
         homeController.delegate = self
-        window?.rootViewController = dogViewController
+        window?.rootViewController = mainController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -64,7 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 extension SceneDelegate: LoginViewControllerDelegate {
     func didLogin(){
         if LocalState.hasOnBoarded {
-            setRootController(homeController)
+            setRootController(onboardingController)
         } else {
             setRootController(onboardingController)
         }
@@ -75,7 +74,7 @@ extension SceneDelegate: ContainerViewControllerDelegate {
     func didFinishOnboarding() {
         print("Onboarding is complete!!")
         LocalState.hasOnBoarded = false
-        setRootController(homeController)
+        setRootController(mainController)
     }
 }
 

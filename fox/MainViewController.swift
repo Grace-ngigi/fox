@@ -15,23 +15,23 @@ class MainViewController : UITabBarController {
     }
     
     private func setUpViews() {
-        let characterVC = CharacterViewController()
-        let feedingVC = FeedingViewController()
+        let dogVC = DummyController()
+        let catVC = CatViewController()
         let historyVC = HistoryViewController()
         
         
-        characterVC.setTabBarImage(imageName: "dog", title: "Character")
-        feedingVC.setTabBarImage(imageName: "list.dash.header.rectangle", title: "Feeding")
-        historyVC.setTabBarImage(imageName: "book.pages", title: "History")
+        dogVC.setTabBarImage(imageName: "dog.fill", title: "Dog")
+        catVC.setTabBarImage(imageName: "cat.fill", title: "Cat")
+        historyVC.setTabBarImage(imageName: "note.text.badge.plus", title: "Fox")
         
-        let characterNC = UINavigationController(rootViewController: characterVC)
-        let feedingNC = UINavigationController(rootViewController: feedingVC)
+        let dogNC = UINavigationController(rootViewController: dogVC)
+        let catNC = UINavigationController(rootViewController: catVC)
         let historyNC = UINavigationController(rootViewController: historyVC)
         
-        characterNC.navigationBar.barTintColor = appColor
-        hideNavigationBarLine(characterNC.navigationBar)
+        dogNC.navigationBar.barTintColor = appColor
+        hideNavigationBarLine(dogNC.navigationBar)
         
-        let tabBarList = [characterNC, feedingNC, historyNC]
+        let tabBarList = [dogNC, catNC, historyNC]
         
         viewControllers = tabBarList
     }
@@ -49,13 +49,6 @@ class MainViewController : UITabBarController {
         tabBar.tintColor = appColor
         tabBar.isTranslucent = false
         
-    }
-}
-
-class FeedingViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemRed
     }
 }
 

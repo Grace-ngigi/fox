@@ -55,7 +55,7 @@ class LoginViewController: UIViewController {
             foxTitle.textColor = .black
 
             moreText.translatesAutoresizingMaskIntoConstraints = false
-            moreText.text = "This app provides all the details you need to know about foxes"
+            moreText.text = "This app provides details of some of the most incredible animals"
             moreText.numberOfLines = 0
             moreText.textAlignment = .center
             moreText.adjustsFontForContentSizeCategory = true

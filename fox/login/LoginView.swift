@@ -43,6 +43,7 @@ extension LoginView {
         passwordTF.placeholder = "Password"
         passwordTF.delegate = self
         passwordTF.isSecureTextEntry = true
+        passwordTF.enablePasswordToggle()
         
         diivider.translatesAutoresizingMaskIntoConstraints = false
         diivider.backgroundColor = .black
@@ -82,5 +83,22 @@ extension LoginView: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+    }
+}
+
+
+let passwordButton = UIButton(type: .custom)
+extension UITextField {
+    func enablePasswordToggle() {
+        passwordButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
+        passwordButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .selected)
+        passwordButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
+        rightView = passwordButton
+        rightViewMode = .always
+    }
+    
+    @objc func togglePasswordView(_ sender: Any) {
+        isSecureTextEntry.toggle()
+        passwordButton.isSelected.toggle()
     }
 }

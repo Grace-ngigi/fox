@@ -8,9 +8,13 @@
 import Foundation
 
 struct DogViewModel {
-//    var id: String
-    var breed: String
-//    var image: String
+    var name: String
+    var description: String?
+//    var imageRef: String
+    var weight: String
+    var height: String
+    var lifespan: String
+//    var origin: String
 }
 
 struct DogDetailViewModel {

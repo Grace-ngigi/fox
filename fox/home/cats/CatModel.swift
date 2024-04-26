@@ -11,10 +11,10 @@ import Foundation
 struct CatModel: Codable {
     let weight: Weight
     let id, name: String
-    let temperament, origin: String
-    let description, lifeSpan: String
+    let temperament, origin, description, lifeSpan: String
     let adaptability, affectionLevel, childFriendly, dogFriendly: Int
-    let hypoallergenic: Int
+    var energyLevel, grooming, healthIssues, intelligence: Int
+    var sheddingLevel, socialNeeds, strangerFriendly, vocalisation, experimental: Int
 
     enum CodingKeys: String, CodingKey {
         case weight, id, name
@@ -25,7 +25,14 @@ struct CatModel: Codable {
         case affectionLevel = "affection_level"
         case childFriendly = "child_friendly"
         case dogFriendly = "dog_friendly"
-        case hypoallergenic
+        case energyLevel = "energy_level"
+        case grooming
+        case healthIssues = "health_issues"
+        case intelligence
+        case sheddingLevel = "shedding_level"
+        case socialNeeds = "social_needs"
+        case strangerFriendly = "stranger_friendly"
+        case vocalisation, experimental
     }
 }
 
@@ -33,3 +40,11 @@ struct CatModel: Codable {
 struct Weight: Codable {
     let imperial, metric: String
 }
+
+
+struct ImageRef: Codable {
+    let id: String
+    let url: String
+    let width, height: Int
+}
+

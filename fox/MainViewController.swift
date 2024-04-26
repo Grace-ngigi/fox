@@ -15,7 +15,7 @@ class MainViewController : UITabBarController {
     }
     
     private func setUpViews() {
-        let dogVC = DummyController()
+        let dogVC = DogViewController()
         let catVC = CatViewController()
         let historyVC = HistoryViewController()
         
@@ -31,7 +31,7 @@ class MainViewController : UITabBarController {
         dogNC.navigationBar.barTintColor = appColor
         hideNavigationBarLine(dogNC.navigationBar)
         
-        let tabBarList = [dogNC, catNC, historyNC]
+        let tabBarList = [catNC, dogNC, historyNC]
         
         viewControllers = tabBarList
     }

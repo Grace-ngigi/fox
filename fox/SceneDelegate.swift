@@ -13,7 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
     let loginController = LoginViewController()
     let onboardingController = ContainerViewController()
-    let homeController = HomeController()
     let mainController = MainViewController()
 
 
@@ -27,8 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = .systemBackground
         onboardingController.delegate = self
         loginController.delegate = self
-        homeController.delegate = self
-        window?.rootViewController = mainController
+        window?.rootViewController = onboardingController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -78,12 +76,6 @@ extension SceneDelegate: ContainerViewControllerDelegate {
     }
 }
 
-extension SceneDelegate: HomeControllerDelegate {
-    func didLogout() {
-        setRootController(loginController)  
-        LocalState.hasOnBoarded = false
-    }
-}
 extension SceneDelegate {
     func setRootController(_ vc: UIViewController, animated: Bool = true){
         guard animated, let window = self.window else {

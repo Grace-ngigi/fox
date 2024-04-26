@@ -18,15 +18,6 @@ class OnboardingViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
     }
     
-    lazy var stackview: UIStackView = {
-        let stackview = UIStackView()
-        stackview.translatesAutoresizingMaskIntoConstraints = false
-        stackview.axis = .vertical
-//        stackview.spacing  = 0
-//        stackview.alignment = .center
-        return stackview
-    }()
-    
     lazy var label: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -43,8 +34,8 @@ class OnboardingViewController: UIViewController {
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
-//        image.layer.borderWidth = 2.0
-//        image.layer.borderColor = UIColor.red.cgColor
+        //        image.layer.borderWidth = 2.0
+        //        image.layer.borderColor = UIColor.red.cgColor
         image.image = UIImage(named: heroImage)
         return image
     }()
@@ -53,29 +44,41 @@ class OnboardingViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
-        layout()
+        setUpViews()
+    }
+    private func setUpViews(){
+        setImage()
+        setLabel()
     }
 }
 
 extension OnboardingViewController {
-    func layout() {
-        stackview.addArrangedSubview(image)
-        stackview.addArrangedSubview(label)
-        
-        view.addSubview(stackview)
+    func setImage() {
+        view.addSubview(image)
         
         NSLayoutConstraint.activate([
-            stackview.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            stackview.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            
-            stackview.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 1),
-            stackview.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            
-            image.heightAnchor.constraint(equalToConstant: 200),
+            image.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            image.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//            image.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 4),
+            image.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 22),
+            image.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.3),
+            image.widthAnchor.constraint(equalTo: view.safeAreaLayoutGuide.widthAnchor, multiplier: 0.9)
+       ])
+    }
+    
+    func setLabel() {
+        view.addSubview(label)
+        
+        NSLayoutConstraint.activate([
+            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            label.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            label.topAnchor.constraint(equalTo: image.bottomAnchor, constant: 8),
+            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
         ])
     }
 }

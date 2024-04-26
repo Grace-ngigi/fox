@@ -7,8 +7,18 @@
 
 import UIKit
 
-class CatTableViewCell: UITableViewCell {
+protocol CatTableCellDelegate: AnyObject {
+    func didSelectCell(withCatData data: CatViewModel)
+}
 
+class CatTableViewCell: UITableViewCell {
+    
+    weak var delegate: CatTableCellDelegate?
+//    var catviewModel: CatViewModel?
+    
+    static let cellId = "catTableViewCell"
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -16,8 +26,11 @@ class CatTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
+    }
+    
+    func configure(with catViewModel: CatViewModel){
+            delegate?.didSelectCell(withCatData: catViewModel)
     }
 
 }

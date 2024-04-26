@@ -16,14 +16,39 @@ class ContainerViewController : UIViewController {
     
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
+//    var currentVC: UIViewController {
+//        didSet {
+//            guard let index = pages.firstIndex(of: currentVC) else { return }
+//            nextButton.isHidden = index == pages.count - 1
+//            backButton.isHidden = index == 0
+//            doneButton.isHidden = !(index == pages.count - 1)
+//        }
+//    }
+    
     var currentVC: UIViewController {
         didSet {
             guard let index = pages.firstIndex(of: currentVC) else { return }
-            nextButton.isHidden = index == pages.count - 1
-            backButton.isHidden = index == 0
-            doneButton.isHidden = !(index == pages.count - 1)
+            
+            switch index {
+            case 0:
+                // Show only the Next button if the index is 0
+                nextButton.isHidden = false
+                backButton.isHidden = true
+                doneButton.isHidden = true
+            case pages.count - 1:
+                // Show only the Back button if the index is the last index
+                nextButton.isHidden = true
+                backButton.isHidden = false
+                doneButton.isHidden = false
+            default:
+                // Show both Next and Back buttons for other indices
+                nextButton.isHidden = false
+                backButton.isHidden = true
+                doneButton.isHidden = true
+            }
         }
     }
+
     
     let closeButton = UIButton(type: .system)
     let doneButton = UIButton(type: .system)
@@ -36,12 +61,12 @@ class ContainerViewController : UIViewController {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll,
                                                        navigationOrientation: .horizontal, options: nil)
         
-        let page1 = OnboardingViewController(heroImage: "foxxy4", labelText: "Dogs have a remarkable sense of smell, with some estimates suggesting they can detect scents up to 100,000 times better than humans.")
-        let page2 = OnboardingViewController(heroImage: "foxxy2", labelText: "Cats have a remarkable ability to rotate their ears independently, allowing them to precisely pinpoint the source of a sound. Each of their ears has 32 muscles, compared to a human's 6, which gives them exceptional control and range of motion.")
-        let page3 = OnboardingViewController(heroImage: "foxxy3", labelText: "Foxes have a striking appearance characterized by their bushy tails, pointed ears, slender bodies, and often colorful fur")
+        let page1 = OnboardingViewController(heroImage: "dog", labelText: "Dogs have a remarkable sense of smell, with some estimates suggesting they can detect scents up to 100,000 times better than humans.")
+        let page2 = OnboardingViewController(heroImage: "cat", labelText: "Cats have a remarkable ability to rotate their ears independently, allowing them to precisely pinpoint the source of a sound. Each of their ears has 32 muscles, compared to a human's 6, which gives them exceptional control and range of motion.")
+        let page3 = OnboardingViewController(heroImage: "foxxy5", labelText: "Foxes have a striking appearance characterized by their bushy tails, pointed ears, slender bodies, and often colorful fur")
         
-        pages.append(page1)
         pages.append(page2)
+        pages.append(page1)
         pages.append(page3)
         
         currentVC = pages.first!
@@ -56,7 +81,6 @@ class ContainerViewController : UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemTeal
-        // embed child view controllers in a view controller
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         view.addSubview(closeButton)
@@ -149,6 +173,7 @@ extension ContainerViewController: UIPageViewControllerDataSource {
     }
 }
 
+//MARK: - Actions
 extension ContainerViewController {
     
     @objc func nextTapped(_ sender: UIButton) {

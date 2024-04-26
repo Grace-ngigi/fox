@@ -12,5 +12,6 @@ struct CatViewModel {
     var temperament, origin: String
     var description, lifeSpan: String
     var adaptability, affectionLevel, childFriendly, dogFriendly: Int
-    var hypoallergenic: Int
-}
+    var energyLevel, grooming, healthIssues, intelligence: Int
+    var strangerFriendly, vocalisation, experimental: Int
+    }

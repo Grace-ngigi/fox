@@ -1,5 +1,5 @@
 //
-//  DummyController.swift
+//  DogViewController.swift
 //  fox
 //
 //  Created by Gracie on 22/04/2024.
@@ -7,20 +7,22 @@
 
 import UIKit
 
-class DummyController: UIViewController {
+class DogViewController: UIViewController {
     var dog: [DogModel] = []
     var dogViewModel: [DogViewModel] = []
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints  = false
+        tableView.register(DogTableViewCell.self, forCellReuseIdentifier: DogTableViewCell.cellId)
+
         return tableView
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUp()
-        fetchDummyDogData()
+        fetchDogData()
     }
     
     private func setUp() {
@@ -38,8 +40,8 @@ class DummyController: UIViewController {
 }
 
 //MARK: Network Calls
-extension DummyController {
-    func fetchDummyData(completion: @escaping (Result<[DogModel], NetworkError>) -> Void) {
+extension DogViewController {
+    func fetchData(completion: @escaping (Result<[DogModel], NetworkError>) -> Void) {
         let url = "https://api.thedogapi.com/v1/breeds"
                 
             guard let url = URL(string: url) else {
@@ -64,9 +66,9 @@ extension DummyController {
 }
 
 // MARK: load data
-extension DummyController {
-    private func fetchDummyDogData() {
-        self.fetchDummyData() { result in
+extension DogViewController {
+    private func fetchDogData() {
+        self.fetchData() { result in
             switch result {
             case .success(let dogData):
                 self.dog = dogData
@@ -74,8 +76,10 @@ extension DummyController {
                     self.configureDogData(with: dogData)
                     self.tableView.reloadData()
                 }
+//                print(dogData)
             case .failure(let error):
-                print("Error: \(error)")
+//                print("Error: \(error)")
+                self.displayError(error: error)
             }
         }
     }
@@ -86,23 +90,47 @@ extension DummyController {
                          description: breed.description,
                          weight: breed.weight.metric,
                          height: breed.height.metric,
-                         lifespan: breed.lifeSpan)
+                         lifespan: breed.lifeSpan,
+                         imageRefId: breed.imageRefId,
+                         temperament: breed.temperament,
+                         bredFor: breed.bredFor)
         }
+    }
+    func displayError(error: NetworkError) {
+        var title: String
+        var message: String
+        
+        switch error {
+        case .serverError:
+            title = "Server Error"
+            message = error.localizedDescription
+        case .decodingError:
+            title = "Decoding Error"
+            message = error.localizedDescription
+        case .invalidURL:
+            title = "Invalid URL Error"
+            message = error.localizedDescription
+        }
+        ShowAlert.showErrorAlert(from: self, title: title, message: message)
     }
 
 }
 
-extension DummyController: UITableViewDataSource, UITableViewDelegate {
+// MARK: Data Source and Delegates
+extension DogViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return dogViewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: DogTableViewCell.cellId, for: indexPath) as! DogTableViewCell
         cell.textLabel?.text = dogViewModel[indexPath.row].name
+        cell.configure(with: dogViewModel[indexPath.row])
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let detailsVC = AnimalDetailViewController()
+        detailsVC.didSelectCell(withDogData: dogViewModel[indexPath.row])
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

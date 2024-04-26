@@ -10,10 +10,12 @@ import UIKit
 class CatViewController: UIViewController {
     var catModel: [CatModel] = []
     var catViewModel: [CatViewModel] = []
+    var viewModel: CatViewModel?
     
     lazy var tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints  = false
+        tableView.register(CatTableViewCell.self, forCellReuseIdentifier: CatTableViewCell.cellId)
         return tableView
     }()
     
@@ -56,7 +58,6 @@ extension CatViewController {
                         let result: [CatModel] = try JSONDecoder().decode([CatModel].self, from: data)
                         completion(.success(result))
                     } catch {
-                        print(error.localizedDescription)
                         completion(.failure(.decodingError))
                     }
             }.resume()
@@ -74,16 +75,17 @@ extension CatViewController {
                     self.configureCatData(with: catData)
                     self.tableView.reloadData()
                 }
+//                print(catData)
             case .failure(let error):
-                print("Error: \(error)")
+                self.displayError(error: error)
             }
         }
     }
     
     func configureCatData(with cats: [CatModel]) {
         catViewModel = cats.map {cat in
-            CatViewModel(weight: cat.weight.metric,
-                         id: cat.id,
+            CatViewModel( weight: cat.weight.metric,
+                          id: cat.id,
                          name: cat.name,
                          temperament: cat.temperament,
                          origin: cat.origin,
@@ -93,23 +95,51 @@ extension CatViewController {
                          affectionLevel: cat.affectionLevel,
                          childFriendly: cat.childFriendly,
                          dogFriendly: cat.dogFriendly,
-                         hypoallergenic: cat.hypoallergenic)
+                         energyLevel: cat.energyLevel,
+                         grooming: cat.grooming,
+                         healthIssues: cat.healthIssues,
+                         intelligence: cat.intelligence,
+                         strangerFriendly: cat.strangerFriendly,
+                         vocalisation: cat.vocalisation,
+                         experimental: cat.experimental
+            )
         }
     }
-
+    func displayError(error: NetworkError) {
+        var title: String
+        var message: String
+        
+        switch error {
+        case .serverError:
+            title = "Server Error"
+            message = error.localizedDescription
+        case .decodingError:
+            title = "Decoding Error"
+            message = error.localizedDescription
+        case .invalidURL:
+            title = "Invalid URL Error"
+            message = error.localizedDescription
+        }
+        ShowAlert.showErrorAlert(from: self, title: title, message: message)
+    }
 }
 
+// MARK: DataSource and Delegate
 extension CatViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return catViewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: "catTableViewCell", for: indexPath) as! CatTableViewCell
+        cell.configure(with: catViewModel[indexPath.row])
         cell.textLabel?.text = catViewModel[indexPath.row].name
         return cell
     }
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let detailsVC = AnimalDetailViewController()
+        detailsVC.didSelectCell(withCatData: catViewModel[indexPath.row])
+        navigationController?.pushViewController(detailsVC, animated: true)
     }
 }

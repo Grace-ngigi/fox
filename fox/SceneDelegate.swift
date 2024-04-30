@@ -26,7 +26,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.backgroundColor = .systemBackground
         onboardingController.delegate = self
         loginController.delegate = self
-        window?.rootViewController = onboardingController
+        window?.rootViewController = mainController
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

@@ -133,9 +133,7 @@ extension LoginViewController {
         if username == "" && password == ""{
             logiinbutton.configuration?.showsActivityIndicator = true
             delegate?.didLogin()
-//            errorLabel.textColor = .systemGreen
-//            errorLabel.isHidden = false
-//            errorLabel.text = "welcome Foxxy"
+//           .text = "welcome Foxxy"
         } else {
             configureView(withMsg: "wrong credentials")
         }

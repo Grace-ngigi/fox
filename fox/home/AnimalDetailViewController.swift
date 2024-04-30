@@ -138,7 +138,7 @@ extension AnimalDetailViewController {
         NSLayoutConstraint.activate([
             firstImageView.centerXAnchor.constraint(equalTo: imageContainer.centerXAnchor),
             firstImageView.topAnchor.constraint(equalTo: imageContainer.topAnchor),
-            firstImageView.heightAnchor.constraint(equalTo: imageContainer.heightAnchor, multiplier: 0.8),
+            firstImageView.heightAnchor.constraint(equalTo: imageContainer.heightAnchor, multiplier: 0.9),
             firstImageView.leadingAnchor.constraint(equalTo: imageContainer.leadingAnchor),
             firstImageView.trailingAnchor.constraint(equalTo: imageContainer.trailingAnchor),
        ])
@@ -327,7 +327,9 @@ extension AnimalDetailViewController {
             title = "Invalid URL Error"
             message = error.localizedDescription
         }
-        ShowAlert.showErrorAlert(from: self, title: title, message: message)
+        DispatchQueue.main.async {
+            ShowAlert.showErrorAlert(from: self, title: title, message: message)
+        }
     }
 }
 

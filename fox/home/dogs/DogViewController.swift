@@ -111,7 +111,9 @@ extension DogViewController {
             title = "Invalid URL Error"
             message = error.localizedDescription
         }
-        ShowAlert.showErrorAlert(from: self, title: title, message: message)
+        DispatchQueue.main.async {
+            ShowAlert.showErrorAlert(from: self, title: title, message: message)
+        }
     }
 
 }

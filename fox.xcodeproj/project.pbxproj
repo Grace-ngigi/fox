@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		65017EC32BC69BE900E8B127 /* UIViewControllerUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC22BC69BE900E8B127 /* UIViewControllerUtils.swift */; };
 		65017EC72BC6AFF600E8B127 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC62BC6AFF600E8B127 /* MainViewController.swift */; };
-		65017ECA2BC7DF8E00E8B127 /* CharacterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017EC92BC7DF8E00E8B127 /* CharacterViewController.swift */; };
 		65017ECC2BC7E83F00E8B127 /* CharacterSummaryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65017ECB2BC7E83F00E8B127 /* CharacterSummaryHeaderView.xib */; };
 		65017ECE2BC7EA5500E8B127 /* CharacterSummaryHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65017ECD2BC7EA5500E8B127 /* CharacterSummaryHeaderView.swift */; };
 		6532EDF02BD39E06000E6A29 /* DogTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6532EDEF2BD39E06000E6A29 /* DogTableViewCell.swift */; };
@@ -23,6 +22,9 @@
 		6577CB2C2BC3D9FA00A1FA53 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6577CB2B2BC3D9FA00A1FA53 /* OnboardingViewController.swift */; };
 		659287372BD69E4800F5294C /* DogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 659287362BD69E4800F5294C /* DogViewController.swift */; };
 		65BB2A562BC57720006ED919 /* LocalState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65BB2A552BC57720006ED919 /* LocalState.swift */; };
+		65D63C762BDF7B6D0084B8A8 /* FoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D63C752BDF7B6D0084B8A8 /* FoxViewController.swift */; };
+		65D63C782BDF84030084B8A8 /* FoxViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D63C772BDF84030084B8A8 /* FoxViewModel.swift */; };
+		65D63C7A2BDF85B70084B8A8 /* AddEditFoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D63C792BDF85B70084B8A8 /* AddEditFoxViewController.swift */; };
 		65E179AF2BD8ECC00053024C /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E179AE2BD8ECC00053024C /* CatModel.swift */; };
 		65E179B12BD8ED2C0053024C /* CatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E179B02BD8ED2C0053024C /* CatViewModel.swift */; };
 		65E278A22BDB95F9001138DD /* ShowAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65E278A12BDB95F9001138DD /* ShowAlert.swift */; };
@@ -50,7 +52,6 @@
 /* Begin PBXFileReference section */
 		65017EC22BC69BE900E8B127 /* UIViewControllerUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUtils.swift; sourceTree = "<group>"; };
 		65017EC62BC6AFF600E8B127 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		65017EC92BC7DF8E00E8B127 /* CharacterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterViewController.swift; sourceTree = "<group>"; };
 		65017ECB2BC7E83F00E8B127 /* CharacterSummaryHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterSummaryHeaderView.xib; sourceTree = "<group>"; };
 		65017ECD2BC7EA5500E8B127 /* CharacterSummaryHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterSummaryHeaderView.swift; sourceTree = "<group>"; };
 		6532EDEF2BD39E06000E6A29 /* DogTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogTableViewCell.swift; sourceTree = "<group>"; };
@@ -64,6 +65,9 @@
 		6577CB2B2BC3D9FA00A1FA53 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		659287362BD69E4800F5294C /* DogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogViewController.swift; sourceTree = "<group>"; };
 		65BB2A552BC57720006ED919 /* LocalState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalState.swift; sourceTree = "<group>"; };
+		65D63C752BDF7B6D0084B8A8 /* FoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoxViewController.swift; sourceTree = "<group>"; };
+		65D63C772BDF84030084B8A8 /* FoxViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoxViewModel.swift; sourceTree = "<group>"; };
+		65D63C792BDF85B70084B8A8 /* AddEditFoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditFoxViewController.swift; sourceTree = "<group>"; };
 		65E179AE2BD8ECC00053024C /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 		65E179B02BD8ED2C0053024C /* CatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatViewModel.swift; sourceTree = "<group>"; };
 		65E278A12BDB95F9001138DD /* ShowAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowAlert.swift; sourceTree = "<group>"; };
@@ -142,6 +146,8 @@
 		65BB2A512BC55CFA006ED919 /* home */ = {
 			isa = PBXGroup;
 			children = (
+				65017EC62BC6AFF600E8B127 /* MainViewController.swift */,
+				65D63C742BDF7B460084B8A8 /* foxes */,
 				6532EDF12BD3A14C000E6A29 /* cats */,
 				6532EDEC2BD39AF2000E6A29 /* dogs */,
 				6532EDF62BD3A668000E6A29 /* AnimalDetailViewController.swift */,
@@ -158,6 +164,16 @@
 				65E278A12BDB95F9001138DD /* ShowAlert.swift */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		65D63C742BDF7B460084B8A8 /* foxes */ = {
+			isa = PBXGroup;
+			children = (
+				65D63C752BDF7B6D0084B8A8 /* FoxViewController.swift */,
+				65D63C772BDF84030084B8A8 /* FoxViewModel.swift */,
+				65D63C792BDF85B70084B8A8 /* AddEditFoxViewController.swift */,
+			);
+			path = foxes;
 			sourceTree = "<group>";
 		};
 		65EDFC852BD78DC400CCE5B0 /* foxUnitTests */ = {
@@ -201,8 +217,6 @@
 				65EF59362BBFE627006E58F0 /* Assets.xcassets */,
 				65EF59382BBFE627006E58F0 /* LaunchScreen.storyboard */,
 				65EF593B2BBFE627006E58F0 /* Info.plist */,
-				65017EC62BC6AFF600E8B127 /* MainViewController.swift */,
-				65017EC92BC7DF8E00E8B127 /* CharacterViewController.swift */,
 			);
 			path = fox;
 			sourceTree = "<group>";
@@ -329,11 +343,11 @@
 			files = (
 				65017ECE2BC7EA5500E8B127 /* CharacterSummaryHeaderView.swift in Sources */,
 				6532EDF02BD39E06000E6A29 /* DogTableViewCell.swift in Sources */,
-				65017ECA2BC7DF8E00E8B127 /* CharacterViewController.swift in Sources */,
 				65E278A22BDB95F9001138DD /* ShowAlert.swift in Sources */,
 				65017EC32BC69BE900E8B127 /* UIViewControllerUtils.swift in Sources */,
 				65017EC72BC6AFF600E8B127 /* MainViewController.swift in Sources */,
 				6532EDF72BD3A668000E6A29 /* AnimalDetailViewController.swift in Sources */,
+				65D63C762BDF7B6D0084B8A8 /* FoxViewController.swift in Sources */,
 				65EF59432BBFE7AC006E58F0 /* LoginViewController.swift in Sources */,
 				65E179AF2BD8ECC00053024C /* CatModel.swift in Sources */,
 				6532EDFE2BD3B380000E6A29 /* NetworkError.swift in Sources */,
@@ -341,11 +355,13 @@
 				6577CB2C2BC3D9FA00A1FA53 /* OnboardingViewController.swift in Sources */,
 				6532EDF52BD3A177000E6A29 /* CatViewController.swift in Sources */,
 				65EF592E2BBFE623006E58F0 /* AppDelegate.swift in Sources */,
+				65D63C782BDF84030084B8A8 /* FoxViewModel.swift in Sources */,
 				6577CB2A2BC3C6C700A1FA53 /* ContainerViewController.swift in Sources */,
 				659287372BD69E4800F5294C /* DogViewController.swift in Sources */,
 				65EF59452BBFE7C3006E58F0 /* LoginView.swift in Sources */,
 				65E179B12BD8ED2C0053024C /* CatViewModel.swift in Sources */,
 				6532EDFC2BD3B0BB000E6A29 /* DogModel.swift in Sources */,
+				65D63C7A2BDF85B70084B8A8 /* AddEditFoxViewController.swift in Sources */,
 				6532EDFA2BD3A7EC000E6A29 /* DogViewModel.swift in Sources */,
 				65EF59302BBFE623006E58F0 /* SceneDelegate.swift in Sources */,
 				65BB2A562BC57720006ED919 /* LocalState.swift in Sources */,

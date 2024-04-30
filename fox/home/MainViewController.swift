@@ -17,21 +17,21 @@ class MainViewController : UITabBarController {
     private func setUpViews() {
         let dogVC = DogViewController()
         let catVC = CatViewController()
-        let historyVC = HistoryViewController()
+        let foxVC = FoxViewController()
         
         
         dogVC.setTabBarImage(imageName: "dog.fill", title: "Dog")
         catVC.setTabBarImage(imageName: "cat.fill", title: "Cat")
-        historyVC.setTabBarImage(imageName: "note.text.badge.plus", title: "Fox")
+        foxVC.setTabBarImage(imageName: "note.text.badge.plus", title: "Fox")
         
         let dogNC = UINavigationController(rootViewController: dogVC)
         let catNC = UINavigationController(rootViewController: catVC)
-        let historyNC = UINavigationController(rootViewController: historyVC)
+        let foxNC = UINavigationController(rootViewController: foxVC)
         
         dogNC.navigationBar.barTintColor = appColor
         hideNavigationBarLine(dogNC.navigationBar)
         
-        let tabBarList = [catNC, dogNC, historyNC]
+        let tabBarList = [catNC, dogNC, foxNC]
         
         viewControllers = tabBarList
     }
@@ -49,12 +49,5 @@ class MainViewController : UITabBarController {
         tabBar.tintColor = appColor
         tabBar.isTranslucent = false
         
-    }
-}
-
-class HistoryViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .systemBlue
     }
 }
